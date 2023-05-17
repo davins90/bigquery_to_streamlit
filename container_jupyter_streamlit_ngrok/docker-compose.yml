@@ -1,0 +1,48 @@
+version: '3'
+services:
+  jupyterlab:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jupyterlab
+    working_dir: '/src'
+    tty: true
+    volumes:
+      - ./src:/src
+      - ./src/data_lake:/src/data_lake
+      - ./src/data_lake/input:/src/data_lake/input
+      - ./src/data_lake/output:/src/data_lake/output
+      - ./src/notebooks:/src/notebooks
+      - ./src/modules:/src/modules
+      - ./src/debug:/src/debug
+      - ./src/docs:/src/docs
+    ports: 
+      - '8080:8080'
+    command: jupyter-lab --ip 0.0.0.0 --port=8080 --allow-root --no-browser --NotebookApp.token=''
+
+  stremlit:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: stremlit
+    working_dir: '/src'
+    tty: true
+    volumes: 
+      - ./src:/src
+      - ./src/app:/src/app
+    ports: 
+      - '8501:8501'
+    command: streamlit run app/app.py
+
+  ngrok:
+    image: ngrok/ngrok:3
+    env_file: .env
+    environment:
+      - NGROK_AUTHTOKEN=${ngrok_key}
+    command: http host.docker.internal:8501
+    ports:
+      - '4040:4040'
+    expose:
+      - '4040'
