@@ -73,7 +73,7 @@ st.markdown("## 5) Save back to BigQuery or Download locally")
 
 st.write(df_copy['isTutorial'].value_counts(dropna=False))
 
-st.write(list(df_copy['isTutorial'].unique()))
+st.write(list(df_copy['isTutorial'].apply(type)))
 
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
