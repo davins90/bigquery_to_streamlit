@@ -42,6 +42,8 @@ st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
 
+df['isTutorial'] = df['isTutorial'].astype(str)
+
 st.write(df['isTutorial'].unique())
 
 # df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
