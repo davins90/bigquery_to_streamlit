@@ -47,6 +47,9 @@ df['isTutorial'] = df['isTutorial'].astype(str)
 
 # df_filtered = df[(df['isTutorial']!='True') & (df['isTutorial']!='False')]
 # df_filtered = df[df['isTutorial'].isna()]
+
+st.write(list(df['isTutorial'].unique()))
+
 df_filtered = df[df['isTutorial']=='NA']
 
 st.write(df_filtered['isTutorial'].value_counts(dropna=False))
