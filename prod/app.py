@@ -50,7 +50,7 @@ df['isTutorial'] = df['isTutorial'].astype(str)
 
 st.write(list(df['isTutorial'].unique()))
 
-df_filtered = df[df['isTutorial']=='NA']
+df_filtered = df[df['isTutorial']=='<NA>']
 
 st.write(df_filtered['isTutorial'].value_counts(dropna=False))
 
