@@ -43,11 +43,11 @@ st.markdown("## 2) Filtering Table")
 # Filter for considering only not analyzed video
 
 df['isTutorial'] = df['isTutorial'].astype(str)
-
 # df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
-# df_filtered = df[(df['isTutorial']!='True') & (df['isTutorial']!='False')]
 
-df_filtered = df[df['isTutorial'].isna()]
+# df_filtered = df[(df['isTutorial']!='True') & (df['isTutorial']!='False')]
+# df_filtered = df[df['isTutorial'].isna()]
+df_filtered = df[df['isTutorial']=='NA']
 
 st.write(df_filtered['isTutorial'].value_counts(dropna=False))
 
