@@ -71,6 +71,8 @@ st.dataframe(df_copy.head(10))
 
 st.markdown("## 5) Save back to BigQuery or Download locally")
 
+st.write(df_copy['isTutorial'].unique())
+
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
     df_copy.to_gbq('{}.{}'.format(dataset_id, table_id), project_id, if_exists='replace')
