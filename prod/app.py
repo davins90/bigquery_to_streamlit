@@ -41,7 +41,7 @@ st.dataframe(df.head(10))
 st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
-df['isTutorial'] = df['isTutorial'].fillna('empty')
+df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
 df_filtered = df[(df['isTutorial']!="Y") & (df['isTutorial']!="N")]
 
 country = st.selectbox("Filter Table for the country desidered.",("DE","IT","GB"),index=2)
