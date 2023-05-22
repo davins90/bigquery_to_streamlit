@@ -71,7 +71,7 @@ st.dataframe(df_copy.head(10))
 
 st.markdown("## 5) Save back to BigQuery or Download locally")
 
-st.write(df_copy['isTutorial'].unique())
+df_copy['isTutorial'] = df_copy['isTutorial'].astype(str) 
 
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
