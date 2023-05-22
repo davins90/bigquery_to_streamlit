@@ -45,7 +45,7 @@ st.markdown("## 2) Filtering Table")
 st.write(df['isTutorial'].unique())
 
 # df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
-# df_filtered = df[(df['isTutorial']!=True) & (df['isTutorial']!=False)]
+df_filtered = df[(df['isTutorial']!=True) & (df['isTutorial']!=False)]
 
 country = st.selectbox("Filter Table for the country desidered.",("DE","IT","GB"),index=2)
 
