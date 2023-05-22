@@ -44,12 +44,12 @@ st.markdown("## 2) Filtering Table")
 
 df['isTutorial'] = df['isTutorial'].astype(str)
 
-# st.write(df['isTutorial'].unique())
-
 # df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
-df_filtered = df[(df['isTutorial']!='True') & (df['isTutorial']!='False')]
+df_filtered = df[(df['isTutorial']!='True') | (df['isTutorial']!='False')]
 
-df_filtered = df[df['isTutorial'].isna()]
+st.write(df['isTutorial'].value_counts(dropna=False))
+
+# df_filtered = df[df['isTutorial'].isna()]
 
 country = st.selectbox("Filter Table for the country desidered.",("DE","IT","GB"),index=2)
 
@@ -72,8 +72,6 @@ st.markdown("## 4) Check Edited Table")
 st.dataframe(df_copy.head(10))
 
 st.markdown("## 5) Save back to BigQuery or Download locally")
-
-st.write(df_copy.dtypes)
 
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
