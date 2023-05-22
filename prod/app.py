@@ -44,10 +44,10 @@ st.markdown("## 2) Filtering Table")
 
 df['isTutorial'] = df['isTutorial'].astype(str)
 
-st.write(df['isTutorial'].unique())
+# st.write(df['isTutorial'].unique())
 
 # df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
-# df_filtered = df[(df['isTutorial']!=True) & (df['isTutorial']!=False)]
+df_filtered = df[(df['isTutorial']!='True') & (df['isTutorial']!='False')]
 
 df_filtered = df[df['isTutorial'].isna()]
 
