@@ -74,6 +74,8 @@ for column in df_copy.columns:
     st.write("Unique types:")
     st.write(list(types))
 
+st.write(df['isTutorial'].unique())
+
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
     df_copy.to_gbq('{}.{}'.format(dataset_id, table_id), project_id, if_exists='replace')
