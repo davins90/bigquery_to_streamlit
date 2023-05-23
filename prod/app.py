@@ -42,7 +42,7 @@ st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
 
-df = df.astype(str)
+# df = df.astype(str)
 
 df_filtered = df[df['isTutorial']=='<NA>']
 
@@ -68,13 +68,13 @@ st.dataframe(df_copy.head(10))
 
 st.markdown("## 5) Save back to BigQuery or Download locally")
 
-st.write(df_copy['isTutorial'].value_counts(dropna=False))
+# st.write(df_copy['isTutorial'].value_counts(dropna=False))
 
-for column in df_copy.columns:
-    types = df_copy[column].apply(type).unique()
-    st.write(f"Column: {column}")
-    st.write("Unique types:")
-    st.write(list(types))
+# for column in df_copy.columns:
+#     types = df_copy[column].apply(type).unique()
+#     st.write(f"Column: {column}")
+#     st.write("Unique types:")
+#     st.write(list(types))
 
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
