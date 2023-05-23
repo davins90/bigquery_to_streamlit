@@ -18,10 +18,8 @@ st.markdown("## 1) Original Table in BigQuery")
 
 # df = pd.read_csv("data_lake/input/youtube_tutorial_report_table_sample.csv")
 
-# Google Cloud Project ID
+# Info ID
 project_id = "bigquery-to-streamlit"
-
-# Dataset ID and Table ID
 dataset_id = "yt_db"
 table_id = "df"
 
@@ -68,11 +66,11 @@ st.markdown("## 5) Save back to BigQuery or Download locally")
 
 # st.write(df_copy['isTutorial'].value_counts(dropna=False))
 
-for column in df_copy.columns:
-    types = df_copy[column].apply(type).unique()
-    st.write(f"Column: {column}")
-    st.write("Unique types:")
-    st.write(list(types))
+# for column in df_copy.columns:
+#     types = df_copy[column].apply(type).unique()
+#     st.write(f"Column: {column}")
+#     st.write("Unique types:")
+#     st.write(list(types))
 
 # mapping dictionary
 map_dict = {"Y": True, "N": False, "NA": None}
@@ -80,7 +78,7 @@ map_dict = {"Y": True, "N": False, "NA": None}
 # replace "Y", "N", and "NA" with True, False, and None
 df_copy['isTutorial'] = df_copy['isTutorial'].map(map_dict)
 
-st.write(df['isTutorial'].unique())
+# st.write(df['isTutorial'].unique())
 
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
