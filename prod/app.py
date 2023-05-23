@@ -42,26 +42,8 @@ st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
 
-def fillna_by_type(df):
-    for column in df.columns:
-        if df[column].dtype == 'int64':
-            df[column] = df[column].fillna(0)
-        elif df[column].dtype == 'float64':
-            df[column] = df[column].fillna(0.0)
-        elif df[column].dtype == 'object':
-            df[column] = df[column].fillna('')
-        else:
-            df[column] = df[column].fillna('')
-    return df
+df = df.astype(str)
 
-df = fillna_by_type(df)
-
-# df = df.astype(str)
-# df['isTutorial'] = df['isTutorial'].astype(str)
-# df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
-
-# df_filtered = df[(df['isTutorial']!='True') & (df['isTutorial']!='False')]
-# df_filtered = df[df['isTutorial'].isna()]
 df_filtered = df[df['isTutorial']=='<NA>']
 
 country = st.selectbox("Filter Table for the country desidered.",("DE","IT","GB"),index=2)
