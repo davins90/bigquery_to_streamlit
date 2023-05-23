@@ -42,7 +42,11 @@ st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
 
-st.write(list(df['isTutorial'].unique()))
+for column in df.columns:
+    types = df[column].apply(type).unique()
+    st.write(f"Column: {column}")
+    st.write("Unique types:")
+    st.write(list(types))
 
 country = st.selectbox("Filter Table for the country desidered.",("DE","IT","GB"),index=2)
 
