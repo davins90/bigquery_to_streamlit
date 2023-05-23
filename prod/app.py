@@ -68,25 +68,11 @@ st.markdown("## 5) Save back to BigQuery or Download locally")
 
 # st.write(df_copy['isTutorial'].value_counts(dropna=False))
 
-# for column in df_copy.columns:
-#     types = df_copy[column].apply(type).unique()
-#     st.write(f"Column: {column}")
-#     st.write("Unique types:")
-#     st.write(list(types))
-
-# Define mapping for pandas datatypes to appropriate NaN/None representations
-nan_values = {
-    np.dtype('O'): None,
-    np.dtype('int64'): np.iinfo(np.int64).min,
-    np.dtype('<M8[ns]'): pd.NaT,
-}
-
-# Convert None values to appropriate NaN representation based on column type
 for column in df_copy.columns:
-    correct_nan_value = nan_values.get(df_copy[column].dtype, None)
-    if correct_nan_value is not None:
-        df_copy[column] = df_copy[column].apply(lambda x: correct_nan_value if x is None else x)
-
+    types = df_copy[column].apply(type).unique()
+    st.write(f"Column: {column}")
+    st.write("Unique types:")
+    st.write(list(types))
 
 # Create a button for saving changes to BigQuery
 if st.button('Save to BigQuery'):
