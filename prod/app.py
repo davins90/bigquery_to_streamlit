@@ -42,9 +42,7 @@ st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
 
-# df = df.astype(str)
-
-df_filtered = df[df['isTutorial']=='<NA>']
+st.write(list(df['isTutorial'].unique()))
 
 country = st.selectbox("Filter Table for the country desidered.",("DE","IT","GB"),index=2)
 
