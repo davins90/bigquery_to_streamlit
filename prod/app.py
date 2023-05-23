@@ -74,6 +74,12 @@ for column in df_copy.columns:
     st.write("Unique types:")
     st.write(list(types))
 
+# mapping dictionary
+map_dict = {"Y": True, "N": False, "NA": None}
+
+# replace "Y", "N", and "NA" with True, False, and None
+df_copy['isTutorial'] = df_copy['isTutorial'].map(map_dict)
+
 st.write(df['isTutorial'].unique())
 
 # Create a button for saving changes to BigQuery
