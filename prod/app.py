@@ -42,7 +42,21 @@ st.markdown("## 2) Filtering Table")
 
 # Filter for considering only not analyzed video
 
-df = df.astype(str)
+def fillna_by_type(df):
+    for column in df.columns:
+        if df[column].dtype == 'int64':
+            df[column] = df[column].fillna(0)
+        elif df[column].dtype == 'float64':
+            df[column] = df[column].fillna(0.0)
+        elif df[column].dtype == 'object':
+            df[column] = df[column].fillna('')
+        else:
+            df[column] = df[column].fillna('')
+    return df
+
+df = fillna_by_type(df)
+
+# df = df.astype(str)
 # df['isTutorial'] = df['isTutorial'].astype(str)
 # df['isTutorial'] = df['isTutorial'].astype(str).fillna('empty')
 
