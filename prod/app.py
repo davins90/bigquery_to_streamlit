@@ -3,7 +3,7 @@ import pandas as pd
 
 from google.cloud import bigquery
 import pandas_gbq
-import numyp as np
+import numpy as np
 
 ###
 # Functions section
