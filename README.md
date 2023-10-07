@@ -49,5 +49,6 @@ After editing, users can choose to save the changes back to the original BigQuer
 The deployment of the web application involves the following steps:
 - The codebase is added to a GitHub repository.
 - A service on Google Cloud Run is created and linked to the GitHub repository where the Dockerfile is located. Each time an update is pushed to the repository, the service automatically triggers a build of the Docker image and deploys the updated application.
+- Set autoscale == 0 for saving purpose
 # 6. Future Enhancements
 As the usage of the application grows, there may be a need for additional features such as advanced filtering options, support for multiple BigQuery tables, and role-based access control for editing data. These can be considered in future versions of the application.
